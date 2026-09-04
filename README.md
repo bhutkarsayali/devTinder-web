@@ -17,6 +17,14 @@ _ Install Tailwind css
     - then add middleware to it with configurations: origin, credentials: true
     - and on front end wherever you are making API call, pass axios => {withCredentials: true} (if u dont pass this, your authentication will fail, and it wont send token back in other API calls)
 
+
+- storing data in Redux store
+- install react-redux + @reduxjs/toolkit https://redux-toolkit.js.org/tutorials/quick-start
+- then => configureStore => Provider =. createSlice => add reducer to store
+- add redux devtools in chrome
+- Login and see if your data is coming properly in the store
+- Navbar should update as soon as user logs in
+- Refactor our code to add constants file + create a components folder
 # componmets design
 Body 
     NavBar
