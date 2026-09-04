@@ -10,6 +10,13 @@ _ Install Tailwind css
 - Create an Outlet in your Body Component
 - Create a Footer
 
+- Create a Login page
+- Install axios
+- Resolve CORS-
+    - Install cors on backend
+    - then add middleware to it with configurations: origin, credentials: true
+    - and on front end wherever you are making API call, pass axios => {withCredentials: true} (if u dont pass this, your authentication will fail, and it wont send token back in other API calls)
+
 # componmets design
 Body 
     NavBar
