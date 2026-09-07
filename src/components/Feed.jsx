@@ -34,7 +34,7 @@ const Feed = () => {
   if (err) return <div className="text-center text-red-500 my-10">{err}</div>;
   if (!feedInStore)
     return <div className="text-center my-10">Loading feed...</div>;
-  if (feedInStore.length === 0)
+  if (feedInStore.length <= 0)
     return <div className="text-center my-10">No users found.</div>;
 
 
