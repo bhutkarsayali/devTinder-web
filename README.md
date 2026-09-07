@@ -32,6 +32,12 @@ _ Install Tailwind css
 - Show toast message on save of profile
 - New Page - see all my connections
 - New Page - see all my connection requests
+- Feature ; Accept/Reject Connection Request
+
+Remaining:
+- Send/Ignore the user card from Feed
+- Signup new user
+- E2E Testing
 
 
 
