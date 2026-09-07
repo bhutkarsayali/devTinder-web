@@ -39,12 +39,11 @@ const Connections = () => {
       <h2 className="text-bold text-2xl text-center">Connections</h2>
       {error}
       <div>
-        {connections &&
-          connections.map((connection) => {
-            const { firstName, lastName, photoURL, age, about, gender } =
+        {connections && connections.map((connection) => {
+            const { _id, firstName, lastName, photoURL, age, about, gender } =
               connection;
             return (
-              <div className="card card-side bg-base-300 shadow-sm w-100 my-10 mx-10">
+              <div key={_id} className="card card-side bg-base-300 shadow-sm w-100 my-10 mx-10">
                 <figure className="w-50 h-50">
                   <img src={photoURL} alt="photo" />
                 </figure>

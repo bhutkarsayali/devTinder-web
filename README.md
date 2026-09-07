@@ -30,7 +30,8 @@ _ Install Tailwind css
 - Logout
 - Edit Profile feature
 - Show toast message on save of profile
-- see all my connections
+- New Page - see all my connections
+- New Page - see all my connection requests
 
 
 
