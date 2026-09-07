@@ -33,9 +33,9 @@ _ Install Tailwind css
 - New Page - see all my connections
 - New Page - see all my connection requests
 - Feature ; Accept/Reject Connection Request
+- Send/Ignore the user card from Feed
 
 Remaining:
-- Send/Ignore the user card from Feed
 - Signup new user
 - E2E Testing
 
