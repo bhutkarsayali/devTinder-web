@@ -48,3 +48,20 @@ Body
     Route=/login  => Login
     Route=/connections  => Connections
     Route=/profile  => Profile
+
+# Deployment
+- signup on AWS
+- Launch instance
+- chmod 400<secret>.pem
+- ssh i "devTinder.secret.pem" ubuntu...........amazonaws.com
+- Install Node version same as your project on AWS virtual machine
+- Git clone frontend and backend repos on virtual machines
+- npm install on virtual machines repos
+- npm run build > create build 
+- use NGINX to host frontend project
+- install nginx 
+- sudo app update
+- sudo systemctl start nginx
+- sudo systemctl enable nginx
+- copy code from dist(buiil files) to /var/www/html (nginx httpserver)
+- Enable port :80 of your instance

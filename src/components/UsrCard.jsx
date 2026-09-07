@@ -3,7 +3,7 @@ import { BASE_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { removeUserFromFeed } from "../utils/feedSlice";
 
-const UsrCard = ({ user }) => {
+const UsrCard = ({ user, showUserCardBtns }) => {
   console.log("User", user);
   const { _id, firstName, lastName, photoURL, age, about, gender } = user;
   const dispatch = useDispatch();
@@ -30,20 +30,22 @@ const UsrCard = ({ user }) => {
         <h2 className="card-title">{firstName + " " + lastName}</h2>
         <p>{age && gender && age + ", " + gender}</p>
         <p>{about}</p>
-        <div className="card-actions justify-center my-4">
-          <button
-            className="btn btn-primary"
-            onClick={() => handleRequest("ignored", _id)}
-          >
-            Ignore
-          </button>
-          <button
-            className="btn btn-secondary"
-            onClick={() => handleRequest("interested", _id)}
-          >
-            Interested
-          </button>
-        </div>
+        {showUserCardBtns && (
+          <div className="card-actions justify-center my-4">
+            <button
+              className="btn btn-primary"
+              onClick={() => handleRequest("ignored", _id)}
+            >
+              Ignore
+            </button>
+            <button
+              className="btn btn-secondary"
+              onClick={() => handleRequest("interested", _id)}
+            >
+              Interested
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

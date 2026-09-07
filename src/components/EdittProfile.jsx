@@ -5,7 +5,7 @@ import { BASE_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
-const EditProfile = ({ user }) => {
+const EdittProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [age, setAge] = useState(user.age || "");
@@ -14,6 +14,7 @@ const EditProfile = ({ user }) => {
   const [photoURL, setPhotoURL] = useState(user.photoURL);
   const [error, setError] = useState("");
   const [showToast, setShowToast] = useState(false);
+  const [showUserCardBtns, setShowUserCardBtns] = useState(false);
   const dispatch = useDispatch();
 
   console.log(user);
@@ -23,23 +24,23 @@ const EditProfile = ({ user }) => {
     try {
       console.log("Helllo");
       const res = await axios.patch(
-        BASE_URL + "/profile/edit",
+        `${BASE_URL}/profile/edit`,
         { firstName, lastName, photoURL, age, about, gender },
         { withCredentials: true },
       );
-      // const res = await axios.patch(BASE_URL + "/profile/edit", {
-      //   firstName,
-      //   lastName,
-      //   photoURL,
-      //   age,
-      //   about,
-      //   gender,
-      // });
       dispatch(addUser(res?.data?.data));
       setShowToast(true);
       setTimeout(() => setShowToast(false), 3000);
     } catch (err) {
-      setError(err.message);
+        console.log("Here");
+      if (err.response) {
+        console.error("Error data:", err.response.data);
+        console.error("Error status:", err.response.status);
+        console.error("Error headers:", err.response.headers);
+      } else {
+        console.error("Error message:", err.message);
+      }
+      setError("Request failed: " + err.message);
     }
   };
   return (
@@ -131,7 +132,11 @@ const EditProfile = ({ user }) => {
           </div>
         </div>
       </div>
-      <UsrCard user={{ firstName, lastName, photoURL, age, about, gender }} />
+      <UsrCard
+        user={{ firstName, lastName, photoURL, age, about, gender }}
+        showUserCardBtns={showUserCardBtns}
+        setShowUserCardBtns={setShowUserCardBtns}
+      />
       {showToast && (
         <div>
           <div className="toast bottom-20">
@@ -145,4 +150,4 @@ const EditProfile = ({ user }) => {
   );
 };
 
-export default EditProfile;
+export default EdittProfile;

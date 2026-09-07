@@ -10,7 +10,7 @@ import Connections from "./components/Connections";
 import Requests from "./components/Requests";
 
 axios.defaults.baseURL = "http://localhost:3000";
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 function App() {
   return (

@@ -7,6 +7,7 @@ import UsrCard from "./UsrCard";
 
 const Feed = () => {
   const [err, setError] = useState("");
+  const [showUserCardBtns, setShowUserCardBtns] = useState(true);
   const dispatch = useDispatch();
   const feedInStore = useSelector((store) => store.feed);
 
@@ -30,22 +31,24 @@ const Feed = () => {
     getFeed();
   }, [feedInStore, dispatch]);
 
-
   if (err) return <div className="text-center text-red-500 my-10">{err}</div>;
   if (!feedInStore)
     return <div className="text-center my-10">Loading feed...</div>;
   if (feedInStore.length <= 0)
     return <div className="text-center my-10">No users found.</div>;
 
-
   return (
-     <div className="flex flex-col items-center my-10 gap-4">
+    <div className="flex flex-col items-center my-10 gap-4">
       <h2 className="text-xl font-bold">Feed Present</h2>
       {feedInStore.map((user) => (
         //  Notice the parenthesis ( ) instead of curly braces { } for implicit return
         //  Always provide a unique key when mapping over elements
         <div key={user._id || user.id} className="flex justify-center w-full">
-          <UsrCard user={user} />
+          <UsrCard
+            user={user}
+            showUserCardBtns={showUserCardBtns}
+            setShowUserCardBtns={setShowUserCardBtns}
+          />
         </div>
       ))}
     </div>
