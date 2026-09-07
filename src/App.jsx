@@ -5,6 +5,10 @@ import Profile from "./components/Profile";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Feed from "./components/Feed";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
